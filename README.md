@@ -1,2 +1,3 @@
 # taxonomicon
-(hopefully) ab intuitive way to peruse the world's organisms
+
+(hopefully) an intuitive way to peruse the world's organisms
