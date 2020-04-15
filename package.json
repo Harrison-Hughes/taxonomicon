@@ -4,11 +4,16 @@
   "private": true,
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
-    "@testing-library/react": "^9.3.2",
+    "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.1.2",
+<<<<<<< HEAD
     "js-levenshtein": "^1.1.6",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
+=======
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+>>>>>>> 099a381c7c1e6e651432c4306785c098cda337bd
     "react-scripts": "3.3.0",
     "semantic-ui-react": "^0.88.2"
   },
