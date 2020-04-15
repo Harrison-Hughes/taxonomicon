@@ -5,11 +5,12 @@ const SpeciesExtract = (props) => {
   const [titleEstimate, setTitleEstimate] = useState("");
 
   // eslint-disable-next-line
-  useEffect(() => fetchPageTitleEstimate(), [props]);
+  useEffect(() => fetchPageTitleEstimate(), [props.canonSpeciesName]);
+  // eslint-disable-next-line
   useEffect(() => fetchExtract(), [titleEstimate]);
 
   const formatSpeciesCanonName = () => {
-    return props.species["canonicalName"].replace(" ", "_");
+    return props.canonSpeciesName.replace(" ", "_");
   };
 
   const retrieveExtrctFromJSONResp = (resp) => {
@@ -26,12 +27,6 @@ const SpeciesExtract = (props) => {
     )
       .then((resp) => resp.json())
       .then((resp) => {
-        console.log(
-          "curr species via. props:",
-          props.species["canonicalName"],
-          ", title estimate:",
-          resp["query"]["search"][0]["title"]
-        );
         setTitleEstimate(resp["query"]["search"][0]["title"]);
       });
   };
@@ -41,10 +36,7 @@ const SpeciesExtract = (props) => {
       `https://en.wikipedia.org/w/api.php?action=query&prop=extracts&exsentences=3&exlimit=1&titles=${titleEstimate}&explaintext=1&formatversion=1&format=json&origin=*`
     )
       .then((resp) => resp.json())
-      .then((resp) => {
-        console.log("page response", resp);
-        return retrieveExtrctFromJSONResp(resp);
-      })
+      .then((resp) => retrieveExtrctFromJSONResp(resp))
       .then((ext) => setExtract(ext))
       .catch(() => {
         setExtract(null);

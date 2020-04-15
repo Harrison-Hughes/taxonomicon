@@ -53,7 +53,9 @@ const SpeciesIndex = () => {
         <b onClick={() => nextSpecificSpecies()}>next</b>
       </div>
       <div>
-        {species.length !== 0 ? <SpeciesExtract species={species} /> : null}
+        {species.length !== 0 ? (
+          <SpeciesExtract canonSpeciesName={species["canonicalName"]} />
+        ) : null}
       </div>
     </div>
   );
